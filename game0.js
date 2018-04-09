@@ -12,7 +12,7 @@ The user moves a cube around the board trying to knock balls into a cone
 	var camera, avatarCam, edgeCam;  // we have two cameras in the main scene
 	var avatar;
 	var building1, building2, building3;
-	
+
 	//var npc1, npc2;
 	// here are some mesh objects ...
 
@@ -143,7 +143,12 @@ The user moves a cube around the board trying to knock balls into a cone
 			//npc2.translateX(30);
 			//scene.add(npc2);
 
-			//addBalls();
+			addBalls();
+
+			//ball1 = createSphereMesh();
+			//ball1.position.set = (15,50,8);
+			//scene.add(ball1);
+
 
 			building1 = createBox();
 			building1.position.set(10,3,7);
@@ -172,39 +177,33 @@ The user moves a cube around the board trying to knock balls into a cone
 
 
 
-	/*function addBalls(){
+	function addBalls(){
 		var numBalls = 20;
 
 
 		for(i=0;i<numBalls;i++){
 			var ball = createBall();
-			ball.position.set(randN(20)+15,30,randN(20)+15);
+			ball.position.set(randN(20)+15,randN(20)+15,randN(20)+15);
 			scene.add(ball);
 
 			ball.addEventListener( 'collision',
 				function( other_object, relative_velocity, relative_rotation, contact_normal ) {
-					if (other_object==cone){
-						console.log("ball "+i+" hit the cone");
+					if (other_object == avatar){
+						console.log("avatar hit the ball");
 						soundEffect('good.wav');
 						gameState.score += 1;  // add one to the score
 						if (gameState.score==numBalls) {
 							soundEffect('harp.wav');
 							gameState.scene='youwon';
 						}
-						if (gameState.health==0) { //still need to create health variable counter
-							gameState.scene='youlose';
-						}
-            //scene.remove(ball);  // this isn't working ...
-						// make the ball drop below the scene ..
-						// threejs doesn't let us remove it from the schene...
+
 						this.position.y = this.position.y - 100;
 						this.__dirtyPosition = true;
 					}
 				}
 			)
 		}
-	}*/
-
+	}
 
 
 	function playGameMusic(){
@@ -281,7 +280,14 @@ The user moves a cube around the board trying to knock balls into a cone
 		return light;
 	}
 
-
+	function createSphereMesh(color){
+		var geometry = new THREE.SphereGeometry( 2.5,16,16);
+		var material = new THREE.MeshLambertMaterial( { color: color} );
+		mesh = new THREE.Mesh( geometry, material );
+		//mesh = new Physijs.BoxMesh( geometry, material,0 );
+		mesh.castShadow = true;
+		return mesh;
+	}
 
 	function createBoxMesh(color){
 		var geometry = new THREE.BoxGeometry( 1, 1, 1);
@@ -452,17 +458,16 @@ The user moves a cube around the board trying to knock balls into a cone
 	}*/
 
 
-	/*function createBall(){
+	function createBall(){
 		//var geometry = new THREE.SphereGeometry( 4, 20, 20);
 		var geometry = new THREE.SphereGeometry( 1, 16, 16);
 		var material = new THREE.MeshLambertMaterial( { color: 0xffff00} );
-		var pmaterial = new Physijs.createMaterial(material,0.9,0.95);
-    var mesh = new Physijs.BoxMesh( geometry, pmaterial );
-		mesh.setDamping(0.1,0.1);
+		mesh = new THREE.Mesh( geometry, material );
+		//mesh = new Physijs.BoxMesh( geometry, material,0 );
 		mesh.castShadow = true;
 		return mesh;
 	}
-
+/*
 	function createCylinder(){
 		//var geometry = new THREE.SphereGeometry( 4, 20, 20);
 		var geometry = new THREE.CylinderGeometry( 1, 1, 10, 128);
