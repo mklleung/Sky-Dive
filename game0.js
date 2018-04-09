@@ -12,6 +12,7 @@ The user moves a cube around the board trying to knock balls into a cone
 	var camera, avatarCam, edgeCam;  // we have two cameras in the main scene
 	var avatar;
 	var building1, building2, building3;
+	var numBalls =20;
 
 	//var npc1, npc2;
 	// here are some mesh objects ...
@@ -141,6 +142,13 @@ The user moves a cube around the board trying to knock balls into a cone
 				scene.add(ball);
 			//}
 
+			ball2 = createBall();
+			ball2.position.set(randN(20)+15,randN(20)+15,randN(20)+15);
+			scene.add(ball2);
+
+			ball3 = createBall();
+			ball3.position.set(randN(20)+15,randN(20)+15,randN(20)+15);
+			scene.add(ball3);
 
 
 			building1 = createBox();
@@ -168,7 +176,13 @@ The user moves a cube around the board trying to knock balls into a cone
 	}
 
 
-
+	/*function addBalls(){
+		for(i=0;i<numBalls;i++){
+			var ball = createBall();
+			ball.position.set(randN(20)+15,randN(20)+15,randN(20)+15);
+			scene.add(ball);
+		}
+	}*/
 
 	/*function addBalls(){
 		var numBalls = 20;
@@ -416,11 +430,12 @@ The user moves a cube around the board trying to knock balls into a cone
 		//var geometry = new THREE.SphereGeometry( 4, 20, 20);
 		var geometry = new THREE.SphereGeometry( 1, 16, 16);
 		var material = new THREE.MeshLambertMaterial( { color: 0xffff00} );
-		mesh = new THREE.Mesh( geometry, material );
+		mesh = new Physijs.BoxMesh( geometry, material,0 );
 		//mesh = new Physijs.BoxMesh( geometry, material,0 );
 		mesh.castShadow = true;
 		mesh.addEventListener( 'collision',
 			function( other_object, relative_velocity, relative_rotation, contact_normal ) {
+				console.dir(other_object)
 				if (other_object==avatar){
 					console.log("avatar hit the ball");
 					soundEffect('good.wav');
