@@ -480,15 +480,15 @@ The user moves a cube around the board trying to knock balls into a cone
 			clock = new THREE.Clock();
 			clock.start();
 
-			window.addEventListener( 'keydown', keydown);
+			window.addEventListener( 'keydown', keydown);\
 			window.addEventListener( 'keyup',   keyup );
-			window.addEventListener('P', p);
+			window.addEventListener('p', p);
   }
 
 	function keydown(event){
 		console.log("Keydown: '"+event.key+"'");
 		//console.dir(event);
-		if (gameState.scene == 'start' && event.key == 'P') {
+		if (gameState.scene == 'start' && event.key == 'p') {
 			gameState.scene = 'main';
 			gameState.score = 0;
 			//addBalls();
@@ -586,7 +586,7 @@ The user moves a cube around the board trying to knock balls into a cone
 	function color(event) {
 
 
-		if(event.key =='Y') {
+		if(event.key =='y') {
 
 			avatar.material.color.setHex( 0xff0000 );
 		}
