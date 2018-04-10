@@ -152,7 +152,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			ball3.position.set(randN(20)+15,randN(20)+15,randN(20)+15);
 			scene.add(ball3);*/
 
-
+			// This part adds the buildings the helicopter avoids.
 			building1 = createBox();
 			building1.position.set(10,3,7);
 			scene.add(building1);
@@ -588,7 +588,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 		if(event.key == 'y') {
 
-			avatar.material.color.setHex( 0xffffff );
+			avatar.material.color.setHex( 0xff0000 );
 		}
 	}
 
