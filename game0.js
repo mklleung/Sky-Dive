@@ -642,7 +642,7 @@ The user moves a cube around the board trying to knock balls into a cone
 				break;
 
 			case "youlose":
-					endText.rotateY(0.005);
+					endText2.rotateY(0.005);
 					renderer.render( endScene2, endCamera2 );
 					break;
 
@@ -663,6 +663,7 @@ The user moves a cube around the board trying to knock balls into a cone
 		//draw heads up display ..
 	  var info = document.getElementById("info");
 		//info.innerHTML='<div style="font-size:24pt">Score: ' + gameState.score + ';  Health: ' + gameState.health +'</div>';
-		info.innerHTML='<div style="font-size:24pt">Score: ' + gameState.score +'</div>';
+		//info.innerHTML='<div style="font-size:24pt">Score: ' + gameState.score +'</div>';
+		info.innerHTML='<div style="font-size:24pt">Find the ball and do not touch the lava! Use the WASD keys to move and the spacebar to rise up.</div>';
 
 	}
