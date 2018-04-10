@@ -96,6 +96,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			scene = initScene();
 			createStartScene();
 			createEndScene();
+			createLoseScene();
 			initRenderer();
 			createMainScene();
 	}
@@ -325,7 +326,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			function( other_object, relative_velocity, relative_rotation, contact_normal ) {
 				if (other_object==avatar){
 					console.log("You touched the ground");
-					soundEffect('bad.wav');
+					soundEffect('fail.wav');
 					gameState.scene='youlose';
 				}
 			}
