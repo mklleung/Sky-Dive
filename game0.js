@@ -560,10 +560,10 @@ The user moves a cube around the board trying to knock balls into a cone
 		//console.log("Keydown:"+event.key);
 		//console.dir(event);
 		switch (event.key){
-			case "w": controls.fwd   = false;  break;
-			case "s": controls.bwd   = false; break;
-			case "a": controls.left  = false; break;
-			case "d": controls.right = false; break;
+			case "W": controls.fwd   = false;  break;
+			case "S": controls.bwd   = false; break;
+			case "A": controls.left  = false; break;
+			case "D": controls.right = false; break;
 			case "r": controls.up    = false; break;
 			case "f": controls.down  = false; break;
 			case "m": controls.speed = 10; break;
@@ -574,7 +574,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 	function p(event) {
 
-		if (gameState.scene == 'startScene' && event.key=='p') {
+		if (gameState.scene == 'startScene' && event.key=='P') {
 			gameState.scene = 'main';
 			gameState.score = 0;
 			//addBalls();
@@ -586,7 +586,7 @@ The user moves a cube around the board trying to knock balls into a cone
 	function color(event) {
 
 
-		if(event.key =='y') {
+		if(event.key =='Y') {
 
 			avatar.material.color.setHex( 0xff0000 );
 		}
