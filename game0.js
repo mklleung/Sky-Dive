@@ -482,13 +482,13 @@ The user moves a cube around the board trying to knock balls into a cone
 
 			window.addEventListener( 'keydown', keydown);
 			window.addEventListener( 'keyup',   keyup );
-			window.addEventListener('p', p);
+			window.addEventListener('P', p);
   }
 
 	function keydown(event){
 		console.log("Keydown: '"+event.key+"'");
 		//console.dir(event);
-		if (gameState.scene == 'start' && event.key == 'p') {
+		if (gameState.scene == 'start' && event.key == 'P') {
 			gameState.scene = 'main';
 			gameState.score = 0;
 			//addBalls();
@@ -507,7 +507,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			//addBalls();
 			return;
 		}
-		if(gameState.scene == 'start' && event.key == 'p') {
+		if(gameState.scene == 'start' && event.key == 'P') {
 
 			gameState.scene = 'main';
 			gameState.score = 0;
