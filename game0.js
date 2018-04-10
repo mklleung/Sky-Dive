@@ -586,7 +586,7 @@ The user moves a cube around the board trying to knock balls into a cone
 	function color(event) {
 
 
-		if(event.key == 'y') {
+		if(event.key =='y') {
 
 			avatar.material.color.setHex( 0xff0000 );
 		}
@@ -664,6 +664,6 @@ The user moves a cube around the board trying to knock balls into a cone
 	  var info = document.getElementById("info");
 		//info.innerHTML='<div style="font-size:24pt">Score: ' + gameState.score + ';  Health: ' + gameState.health +'</div>';
 		//info.innerHTML='<div style="font-size:24pt">Score: ' + gameState.score +'</div>';
-		info.innerHTML='<div style="font-size:24pt">Find the ball and do not touch the lava! Use the WASD keys to move and the spacebar to rise up.</div>';
+		info.innerHTML='<div style="font-size:24pt">Find the ball and do not touch the lava and avoid the buildings!Use the WASD keys to move and the spacebar to rise up. W is up, A left, S down, D right </div>';
 
 	}
