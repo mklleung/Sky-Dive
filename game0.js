@@ -12,7 +12,7 @@ The user moves a cube around the board trying to knock balls into a cone
 	var camera, avatarCam, edgeCam;  // we have two cameras in the main scene
 	var avatar;
 	var building1, building2, building3;
-	var numBalls =20;
+	var numBalls =1;
 
 	//var npc1, npc2;
 	// here are some mesh objects ...
@@ -20,6 +20,7 @@ The user moves a cube around the board trying to knock balls into a cone
 	//var cone;
 
 	var endScene, endCamera, endText;
+	var endScene2, endCamera2, endText2;
 	var startScene, startCamera, startText;
 
 
@@ -75,16 +76,16 @@ The user moves a cube around the board trying to knock balls into a cone
 	}
 
 	function createLoseScene(){
-		endScene = initScene();
-		endText = createSkyBox('youlose.png',10);
-		//endText.rotateX(Math.PI);
-		endScene.add(endText);
-		var light1 = createPointLight();
-		light1.position.set(0,200,20);
-		endScene.add(light1);
-		endCamera = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
-		endCamera.position.set(0,50,1);
-		endCamera.lookAt(0,0,0);
+			endScene2 = initScene();
+			endText2 = createSkyBox('youlose.png',10);
+			//endText.rotateX(Math.PI);
+			endScene2.add(endText2);
+			var light2 = createPointLight();
+			light2.position.set(0,200,20);
+			endScene2.add(light2);
+			endCamera2 = new THREE.PerspectiveCamera( 90, window.innerWidth / window.innerHeight, 0.1, 1000 );
+			endCamera2.position.set(0,50,1);
+			endCamera2.lookAt(0,0,0);
 
 	}
 
@@ -118,7 +119,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 
 			// create the ground and the skybox
-			var ground = createGround('grass.png');
+			var ground = createGround('lava.png');
 			scene.add(ground);
 			var skybox = createSkyBox('sky.jpg',1);
 			scene.add(skybox);
@@ -139,17 +140,17 @@ The user moves a cube around the board trying to knock balls into a cone
 
 			//for (int i=0, i<20, i++){
 				ball = createBall();
-				ball.position.set(randN(20)+15,randN(20)+15,randN(20)+15);
+				ball.position.set(randN(5)+15,randN(5)+15,randN(5)+15);
 				scene.add(ball);
 			//}
 
-			ball2 = createBall();
+			/*ball2 = createBall();
 			ball2.position.set(randN(20)+15,randN(20)+15,randN(20)+15);
 			scene.add(ball2);
 
 			ball3 = createBall();
 			ball3.position.set(randN(20)+15,randN(20)+15,randN(20)+15);
-			scene.add(ball3);
+			scene.add(ball3);*/
 
 
 			building1 = createBox();
@@ -163,6 +164,22 @@ The user moves a cube around the board trying to knock balls into a cone
 			building3 = createBox();
 			building3.position.set(5,3,3);
 			scene.add(building3);
+
+			building4 = createBox();
+			building4.position.set(0,3,15);
+			scene.add(building4);
+
+			building5 = createBox();
+			building5.position.set(-5,3,17);
+			scene.add(building5);
+
+			building6 = createBox();
+			building6.position.set(-10,3,2);
+			scene.add(building6);
+
+			building7 = createBox();
+			building7.position.set(-15,3,10);
+			scene.add(building7);
 			/*cone = createConeMesh(4,6);
 			cone.position.set(10,3,7);
 			scene.add(cone);*/
@@ -413,8 +430,8 @@ The user moves a cube around the board trying to knock balls into a cone
 
 
 		function createBox(){
-			var geometry = new THREE.BoxGeometry(3,20,3);
-			var texture = new THREE.TextureLoader().load( '../images/tile.jpg' );
+			var geometry = new THREE.BoxGeometry(5,40,5);
+			var texture = new THREE.TextureLoader().load( '../images/skyScraper.jpg' );
 			texture.wrapS = THREE.RepeatWrapping;
 			texture.wrapT = THREE.RepeatWrapping;
 			texture.repeat.set( 1, 1 );
@@ -626,7 +643,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 			case "youlose":
 					endText.rotateY(0.005);
-					renderer.render( endScene, endCamera );
+					renderer.render( endScene2, endCamera2 );
 					break;
 
 			case "main":
@@ -645,6 +662,7 @@ The user moves a cube around the board trying to knock balls into a cone
 
 		//draw heads up display ..
 	  var info = document.getElementById("info");
-		info.innerHTML='<div style="font-size:24pt">Score: ' + gameState.score + ';  Health: ' + gameState.health +'</div>';
+		//info.innerHTML='<div style="font-size:24pt">Score: ' + gameState.score + ';  Health: ' + gameState.health +'</div>';
+		info.innerHTML='<div style="font-size:24pt">Score: ' + gameState.score +'</div>';
 
 	}
