@@ -480,7 +480,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			clock = new THREE.Clock();
 			clock.start();
 
-			window.addEventListener( 'keydown', keydown);\
+			window.addEventListener( 'keydown', keydown);
 			window.addEventListener( 'keyup',   keyup );
 			window.addEventListener('p', p);
   }
@@ -507,7 +507,7 @@ The user moves a cube around the board trying to knock balls into a cone
 			//addBalls();
 			return;
 		}
-		if(gameState.scene == 'start' && event.key == 'P') {
+		if(gameState.scene == 'start' && event.key == 'p') {
 
 			gameState.scene = 'main';
 			gameState.score = 0;
@@ -560,10 +560,10 @@ The user moves a cube around the board trying to knock balls into a cone
 		//console.log("Keydown:"+event.key);
 		//console.dir(event);
 		switch (event.key){
-			case "W": controls.fwd   = false;  break;
-			case "S": controls.bwd   = false; break;
-			case "A": controls.left  = false; break;
-			case "D": controls.right = false; break;
+			case "w": controls.fwd   = false;  break;
+			case "s": controls.bwd   = false; break;
+			case "a": controls.left  = false; break;
+			case "d": controls.right = false; break;
 			case "r": controls.up    = false; break;
 			case "f": controls.down  = false; break;
 			case "m": controls.speed = 10; break;
@@ -586,9 +586,9 @@ The user moves a cube around the board trying to knock balls into a cone
 	function color(event) {
 
 
-		if(event.key =='y') {
+		if(event.key =='Y') {
 
-			avatar.material.color.setHex( 0xff0000 );
+			avatar.material.color.setHex( 0xffffff );
 		}
 	}
 
